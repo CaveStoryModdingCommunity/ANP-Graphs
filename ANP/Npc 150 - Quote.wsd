@@ -1,0 +1,49 @@
+@startuml Npc 150 - Quote
+
+[*] --> 0000
+0000: Init
+0000 --> 0001
+
+0001: N/A
+
+0002: Look up
+
+0010: Start splatting
+0010 -[dashed]-> 0011
+
+0011: Splat on the floor
+
+0020: Get teleported out (Post-storehouse), set wait to 64 ticks
+0020 -[dashed]-> 0021
+
+0021: Destroy self (once wait hits 0)
+
+0050: Start walking
+0050 -[dashed]-> 0051
+
+0051: walking
+
+0060: Start falling (normal ending)
+0060 -[dashed]-> 0061
+
+0061: Falling
+
+0070: Start walking in place
+0070 -[dashed]-> 0071
+
+0071: Walk in place
+
+0080: Back turned/Interacting
+
+0099: Unused
+0099 -[dotted]-> 0100
+
+0100: Start walking in place (Gravity, from credits)
+0100 -[dashed]-> 0101
+
+0101: Walk in place	(Gravity, same glitch as 0051)
+
+0102: Walk in place	(No gravity, same glitch as 0051)
+
+
+@enduml

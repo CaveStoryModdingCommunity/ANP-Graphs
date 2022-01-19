@@ -1,0 +1,31 @@
+@startuml Npc 0115 - Ravil
+[*] --> 0000
+0000 : Init
+0000 --> 0001
+
+0001: Idle
+0001 --> 0010 : Player approaches/Ravil takes damage
+
+0010: En garde (Focus on player)
+0010 --> 0020 : After 20 ticks
+
+0020: Jumping logic
+0020 --> 0021 : Jump
+
+0021: Jumping
+0021 --> 0021 : Airborne
+0021 --> 0020 : Grounded
+
+0030 : Spawn lots of smoke
+0030 --> 0000
+
+0050: Die
+0050 --> 0050 : Airborne
+0050 --> 0051 : Landed
+
+0051: Dead
+0051 --> 0052
+
+0052: N/A
+
+@enduml

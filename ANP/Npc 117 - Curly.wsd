@@ -1,0 +1,41 @@
+@startuml Npc 117 - Curly
+[*] --> 0000
+
+0000: Init
+0000 --> 0001
+
+0001: Idle
+
+0003: Start walking
+0003 --> 0004
+
+0004: Walking
+
+0005: Die in cloud of smoke
+0005 --> 0006
+
+0006: Dead
+
+0010: Start walking towards player
+0010 --> 0011
+
+0011: Walking towards player
+0011 --> 0000 : Once within 1 tile of player
+
+0020: Back turned/Inspecting
+
+0021: Look up
+
+0030: Knocked back
+0030 --> 0031
+
+0031: Falling over
+
+0032: Falling again idk
+
+0070: Moonwalk?
+0070 --> 0071
+
+0071: Moonwalking?
+
+@enduml
