@@ -1,0 +1,28 @@
+@startuml Npc 49 - Skullhead
+
+[*] --> 0000
+
+0000: Init
+note left
+Technically, even if the entity has a parent, it will always run 0001 next.
+However, the only unintended side effect is increasing npc->act_wait
+which is reset to 0 before its next use.
+Just don't spam ANP 0000 and you should be fine.
+end note
+0000 -[dashed]-> 0010 : Has parent
+0000 -[dashed]-> 0001 : Has no parent
+
+0001: Hop
+0001 --> 0003 : 3 ticks passed
+
+0003: Hopping
+0003 --> 0003 : Airborne
+0003 --> 0001 : Grounded
+
+0010: Wait 50 ticks, then wait for Quote to be in range
+0010 --> 0011 : Quote in range
+
+0011: Fire bone
+0011 --> 0010 : 50 ticks passed
+
+@enduml
