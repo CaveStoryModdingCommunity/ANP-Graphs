@@ -1,7 +1,7 @@
 @startuml Boss 5 - Ironhead
 [*] --> 0000
 
-0000: Init
+0000: Start
 0000 --> 0100
 
 0100: Hide at edge of screen
