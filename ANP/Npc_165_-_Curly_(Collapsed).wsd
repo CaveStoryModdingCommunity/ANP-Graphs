@@ -1,0 +1,10 @@
+@startuml Npc 165 - Curly (Collapsed)
+
+[*] --> 0000
+
+0000: Adjust sprite position
+0000 -[dashed]-> 0001
+
+0001: Look up when Quote close (only when facing right)
+
+@enduml
