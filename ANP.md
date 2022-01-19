@@ -1,5 +1,5 @@
 # 49 - Skullhead
-![Skullhead](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_49_-_Skullhead.wsd
+![Skullhead](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_49_-_Skullhead.wsd)
 
 # 115 - Ravil
 ![Ravil](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_115_-_Ravil.wsd)
