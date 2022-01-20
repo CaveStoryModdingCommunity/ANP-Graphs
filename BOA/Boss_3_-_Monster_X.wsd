@@ -1,0 +1,81 @@
+@startuml Boss 3 - Monster X
+
+[*] --> 0000
+
+0000: Move into position
+
+0001: Init/Become visible
+0001 --> 0002
+
+0002: Wait for <BOA
+
+0010: Start attacking
+0010 -[dashed]-> 0011
+
+state QC <<fork>>
+QC --> 0200 : Quote left
+QC --> 0100 : Quote right
+
+0011: Attacking
+0011 --> QC
+
+0100: Start moving right/Increase turn counter
+0100 -[dashed]-> 0101
+
+0101: Move right
+0101 -[norank]-> 0200
+0101 --> 0300 : Made 2 turns
+
+0200: Start moving left/Increase turn counter
+0200 -[dashed]-> 0201
+
+0201: Move left
+0201 -[norank]-> 0100
+0201 --> 0400 : Made 2 turns
+
+0300: Stop moving right
+0300 -[dashed]-> 0301
+
+state PC <<fork>>
+PC --> 0500 : In phase 1
+PC --> 0600 : In phase 2
+
+0301: Stop moving right
+0301 --> PC
+
+0400: Stop moving left
+0400 -[dashed]-> 0401
+
+0401: Stop moving left
+0401 --> PC
+
+0500: Begin phase 1 attack
+0500 -[dashed]-> 0501
+
+0501: Phase 1
+0501 --> 0502 : Time ran out/All turrets destroyed
+
+0502: Begin closing phase 1
+0502 -[dashed]-> 0503
+
+0503: Closing phase 1
+0503 --> QC
+
+0600: Begin phase 2 attack
+0600 -[dashed]-> 0601
+
+0601: Phase 2
+0601 --> 0602 : Taken 200 damage/Time ran out
+
+0602 : Begin closing phase 2
+0602 -[dashed]-> 0603
+
+0603: Closing phase 2
+0603 --> QC
+
+1000: Die/Explode
+1000 --> 1001 : 100 ticks passed
+
+1001: Cat reveal
+
+@enduml
