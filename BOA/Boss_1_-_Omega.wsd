@@ -8,7 +8,7 @@
 
 0030 : Rising out of ground (wait 48 ticks)
 0030 --> 0040 : HP > 200
-0030 --> 0110 : HP >= 200
+0030 --> 0110 : HP <= 200
 
 0040 : Wait 48 Ticks
 0040 --> 0050 : After 48 ticks
