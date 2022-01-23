@@ -1,0 +1,59 @@
+@startuml Boss 1 - Omega
+
+[*] --> 0000
+0000 : Init
+
+0020 : Start rising out of ground
+0020 -[dashed]-> 0030
+
+0030 : Rising out of ground (wait 48 ticks)
+0030 --> 0040 : HP > 200
+0030 --> 0110 : HP >= 200
+
+0040 : Wait 48 Ticks
+0040 --> 0050 : After 48 ticks
+
+0050 : Open mouth
+0050 --> 0060 : After 9(?) ticks
+
+0060 : Shoot
+0060 --> 0070 : After 200 ticks, or if a missile is fired
+
+0070 : Close mouth
+0070 --> 0080 : After 9(?) ticks
+
+0080 : Wait 48 ticks
+0080 --> 0090 : After 48 ticks
+
+0090 : Lower into ground
+0090 --> 0100 : After 48 Ticks
+
+0100 : Move to random spot in arena after 120 ticks
+0100 --> 0030 : After 120 ticks
+
+0110 : Wait 9 ticks
+0110 --> 0120 : After 9 ticks
+
+0120 : Shoot
+0120 --> 0130 : After 50 ticks, or if a missile is fired
+
+0130 : Hop after 9 ticks
+0130 --> 0140 : After 9(?) ticks
+
+0140 : Hopping
+0140 --> 0140 : Airborne
+0140 --> 0110 : Grounded
+
+0150 : Explode
+note right of 0150
+Unlike some other custom death
+animations, this one will be
+queued immediately when
+Omega's life hits 0.
+end note
+0150 --> 0180 : After 100 ticks
+
+0180 : Disappear
+180 --> [*]
+
+@enduml
