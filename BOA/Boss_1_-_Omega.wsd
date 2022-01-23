@@ -51,9 +51,9 @@ animations, this one will be
 queued immediately when
 Omega's life hits 0.
 end note
-0150 --> 0180 : After 100 ticks
+0150 --> 0160 : After 100 ticks
 
-0180 : Disappear
-180 --> [*]
+0160 : Disappear
+0160 --> [*] : After 50 Ticks
 
 @enduml
