@@ -1,0 +1,43 @@
+@startuml Boss 8 - Heavy Press
+[*] --> 0000
+0000 : Init frame/hit rects
+0000 --> 0010
+
+0005 : Disappear
+0005 --> 0006
+
+0006 : Wait for <BOA
+
+0010 : Move into position
+0010 --> 0011
+
+0011 : Wait for <BOA
+
+0020 : Get ready to spawn smoke
+0020 -[dashed]-> 0021
+
+0021 : Spawn smoke on body
+
+0030 : Start falling
+0030 -[dashed]-> 0031
+
+0031 : Falling
+0031 --> 0020 : Fallen 413 tiles
+
+0100 : Begin boss fight
+0100 -[dashed]-> 0101
+
+0101 : Boss loop
+
+0500 : Start dying
+0500 -[dashed]-> 0501
+
+0501 : Exploding
+0501 --> 0510 : After 100 ticks
+
+0510 : Fall off-screen
+0510 --> 0520 : Fallen 480 tiles
+
+0520 : Stay off-screen
+
+@enduml
