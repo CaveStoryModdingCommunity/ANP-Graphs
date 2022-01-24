@@ -1,0 +1,46 @@
+@startuml Npc 122 - Colon (Enemy)
+
+[*] -[dashed]-> 0000
+0000 : Init
+
+0001 : Idle/Look at Quote
+0001 --> 0002 : 1/120 chance each frame
+
+0002 : Blink
+0002 --> 0001 : After 8 ticks
+
+0010 : Init attack/Pick random wait time
+0010 -[dashed]-> 0011
+note on link : Become harmless
+
+0011 : Wait to attack
+0011 --> 0013 : After 0-50 ticks
+
+0013 : Start charge/Pick random wait time
+0013 -[dashed]-> 0014
+
+0014 : Charge and jump after wait elapsed
+0014 --> 0015 : After 0-50 ticks
+note on link : Become shootable & harmful
+
+0015 : Jumping
+0015 --> 0015 : Airborne
+0015 --> 0010 : Grounded
+note on link : Become shootable & harmless
+
+0020 : Prepare to die/Pick random wait time
+note top of 0020
+Unlike some custom death animations,
+this one will be queued as soon as the
+Colon takes ANY damage in states 11-19.
+That transition also makes it un-shootable.
+end note
+0020 --> 0020 : Airborne
+0020 --> 0021 : Grounded
+note on link : Become harmless
+
+0021 : :colondead:
+0021 --> 0011 : After 300-400 ticks
+note on link : Become shootable
+
+@enduml

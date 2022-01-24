@@ -7,6 +7,9 @@
 # 117 - Curly
 ![Curly](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_117_-_Curly.wsd)
 
+# 120 - Curly
+![Colon_Enemy](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_122_-_Colon_(Enemy).wsd)
+
 # 150 - Quote
 ![Quote](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_150_-_Quote.wsd)
 
