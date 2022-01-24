@@ -1,0 +1,101 @@
+@startuml Boss 6 - The Sisters
+[*] --> 0000
+0000 : Init/Choose random wait (700-1200)
+0000 --> 0010
+
+0010 : Wait for <BOA
+
+0020 : Fly in
+0020 --> 0100 : Flown in
+
+0100 : Circle clockwise
+0100 --> 0110 : After (wait + 60) ticks
+note on link : Pick new random wait (400-700)
+
+0110 : Circle counterclockwise
+state if <<choice>>
+0110 --> if : After (wait+60) ticks
+note on link : Pick new random wait (400-700)
+
+if --> 0400 : Life < 300
+if --> 0100 : Life >= 300
+
+0400 : Phase 2 wait
+0400 --> 0401 : After 100 ticks
+
+0401 : Phase 2 circle clockwise
+0401 --> 0100 : After (wait + 60) ticks
+
+1000 : Begin dying
+1000 -[dashed]-> 1001
+
+1001 : Spawn smoke everywhere
+1001 --> 1010 : After 100 ticks
+
+1010 : Start colliding
+1010 --> 1020 : Collided
+
+1020 : Dead
+1020 --> [*] : After 50 ticks
+
+@enduml
+
+@startuml Dragon Body
+
+[*] --> 0000
+0000 : Normal circling
+note right
+The circling code works by
+using npc->pNpc->count1 as
+an angle that the body will
+convert to x/y coordinates
+to gradually move towards.
+end note
+0000 -[dashed]-> 0010
+
+0010 : Face Quote
+
+0100 : Phase 2 circling/Face Quote
+
+1000 : Become invulnerable
+1000 -[dashed]-> 1001
+
+1001 : Phase 2 circling/Face center
+
+@enduml
+
+@startuml Dragon Head
+
+[*] --> 0000
+0000 : Idle
+0000 --> 0001
+
+0001 : Wait for phase change
+
+0100 : Start
+0100 -[dashed]-> 0200
+
+0200 : Pick random wait
+0200 -[dashed]-> 0201
+
+0201 : Wait out timer
+0201 --> 0210 : After 100-200 ticks
+
+0210 : Open mouth
+0210 --> 0220 : After 150 ticks
+0210 --> 0300 : 10 damage taken
+
+0220 : Shoot fire
+0220 --> 0200 : After 50 ticks
+
+0300 : Stunned
+0300 --> 0200 : After 100 ticks
+
+0400 : Init phase 2
+0400 -[dashed]-> 0401
+
+0401 : Shoot phase 2 fire
+
+1000 : Permanently stunned/Dead
+
+@enduml
