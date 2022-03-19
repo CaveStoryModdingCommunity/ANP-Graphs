@@ -7,6 +7,9 @@
 # 117 - Curly
 ![Curly](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_117_-_Curly.wsd)
 
+# 118 - Curly (Boss)
+![Curly_Boss](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_118_-_Curly_(Boss).wsd)
+
 # 122 - Colon (Enemy)
 ![Colon_Enemy](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_122_-_Colon_(Enemy).wsd)
 
