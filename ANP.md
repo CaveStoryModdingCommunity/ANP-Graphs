@@ -1,3 +1,6 @@
+# 42 - Sue
+![Sue](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_42_-_Sue.wsd)
+
 # 49 - Skullhead
 ![Skullhead](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_49_-_Skullhead.wsd)
 

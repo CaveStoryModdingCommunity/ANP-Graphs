@@ -1,0 +1,80 @@
+@startuml Npc 42 - Sue
+[*] --> 0000
+
+0000 : Init
+
+0000 -[dashed]-> 0001
+
+0001 : Idle
+0001 --> 0002 : 1 in 120 chance every tick
+
+0002 : Blink
+0002 --> 0001 : After 8 ticks
+
+0003 : Start walking
+0003 -[dashed]-> 0004
+
+0004 : Walking
+
+0005 : Interacting
+
+0006 : Hurt
+note left : Play sound 50
+0006 -[dashed]-> 0007
+
+0007 : Being hurt
+0007 --> 0000 : After 10 ticks
+
+0008 : Get knocked back
+note top : Play sound 50
+0008 -[dashed]-> 0009
+
+0009 : Being knocked back
+0009 --> 0009 : Airborne
+0009 --> 0010 : Grounded, 4 ticks or more passed
+
+0010 : Knocked down
+
+0011 : Start making a fit
+0011 -[dashed]-> 0012
+
+0012 : :SueAngery:
+
+0013 : Setup being grabbed by Igor
+note top
+Find the first npc with event 501
+Set that as the parent
+end note
+0013 -[dashed]-> 0014
+
+0014 : Being grabbed by Igor
+note bottom
+Face opposite direction of parent
+X position biased in direction parent is facing
+All other movement is disabled while in this state
+end note
+
+0015 : Summon Red Crystal
+0015 -[dashed]-> 0016
+
+0016 : Red Crystal targets left of Sue
+
+0017 : Red Crystal targets above Sue
+
+0020 : Start running left to Quote
+0020 -[dashed]-> 0021
+
+0021 : Run left to Quote
+0021 --> 0000 : Close enough to Quote
+
+0030 : Start running
+0030 -[dashed]-> 0031
+
+0031 : Running
+
+0040 : Angery hop
+0040 --> 0041
+
+0041 : Hop complete
+
+@enduml
