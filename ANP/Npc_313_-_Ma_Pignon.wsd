@@ -1,0 +1,117 @@
+@startuml Npc 313 - Ma Pignon
+[*] --> 0000
+
+0000 : Init
+0000 -[dashed]-> 0001
+
+0001 : Idle
+note left : Face player
+
+0001 --> 0002 : 1 in 120 chance each frame
+note on link : Set sprite to blinking
+
+0002 : Blink
+0002 --> 0001 : After 8 ticks
+
+0100 : Start boss fight
+note left
+If a Blade or Missile is on screen
+and Ma Pignon is in any state from
+101-499, except for 210 and 320
+Become invulnerable
+Otherwise, become vulnerable
+end note
+0100 -[dashed]-> 0110
+note on link : Become shootable
+
+0110 : Decide next move
+state hc <<choice>>
+0110 --> hc : After 4 ticks
+hc --> 0120 : taken less than 12 hops
+hc --> 0300 : taken more than 12 hops
+
+0120 : Hop
+0120 ---> 0130 : After 4 ticks
+
+0130 : Hopping
+note left
+If 8 or more tiles
+away from top of map
+turn off noclip
+end note
+0130 --> 0130 : Airborne
+0130 -u-> 0140 : Grounded
+0130 --> 0200 : Taken 4 hops this round, and player is below
+
+0140 : Post-hop
+0140 -u-> 0110 : After 4 ticks
+
+0200 : Prepare to launch
+0200 --> 0210 : After 10 ticks
+note on link
+Play sound 25
+Become invulnerable
+end note
+
+0210 : Launching!
+0210 --> 0210 : Airborne
+0210 --> 0220 : Hit a wall
+
+0220 : Whack!
+note left
+Quake for 16 ticks
+Play sound 26
+Set contact damage to 4
+end note
+0220 -[dashed]-> 0221
+
+0221 : Stuck in wall
+note left : Spawn boulders every 6 ticks
+0221 -u-> 0130 : After 30 ticks
+note on link
+Become vulnerable
+Set contact damage to 3
+end note
+
+0300 : Start clone attack
+0300 -[dashed]-> 0301
+
+0301 : Walking towards player
+0301 --> 0310 : Close 
+
+0310 : Start jumping
+0310 --> 0320 : After 4 ticks
+note on link
+Play sound 25
+Enable noclip
+Become invulnerable
+Set contact damage to 10
+end note
+
+0320 : Jumping
+0320 --> 0320 : Airborne
+0320 --> 0330 : Within 1 tile of top of map
+
+0330 : Smash!
+note left
+Quake for 16 ticks
+Play sound 26
+end note
+0330 -[dashed]-> 0331
+
+0331 : Stuck in ceiling
+note left : Spawn clones every 6 ticks
+0331 -l-> 0130 : After 30 ticks
+
+0500 : Start dying
+note left
+Become invulnerable
+Destroy all clones
+end note
+0500 -[dashed]-> 0501
+
+0501 : Shivering in death
+
+
+
+@enduml
