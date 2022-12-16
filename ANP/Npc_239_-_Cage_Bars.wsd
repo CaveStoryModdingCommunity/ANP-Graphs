@@ -1,0 +1,21 @@
+@startuml Npc 239 - Cage Bars
+
+[*] --> 0000
+
+0000 : Init
+note left
+If direction is 0, set up the PrtStore bars:
+    Move down 16 pixels and right 8 pixels
+Otherwise, set up the PrtWhite bars:
+    Set the view offsets as follows:
+        Left Offset, Right Offset = 24 pixels
+        Y Offset = 8 pixels
+    Fun fact: this writes to the Right Offset twice in a row,
+    leaving the Unused variable unchanged
+end note
+
+0000 --> 0001
+
+0001 : Exist
+
+@enduml
