@@ -1,0 +1,212 @@
+@startuml Boss 7 - Undead Core
+
+[*] --> 0000
+note left
+Movement applies in
+states 200 - 299.
+Minicores are spawned in
+states 201, 211, 221, and 231
+end note
+
+0000 : Wait for BOA
+
+0001 : Init
+0001 -[dashed]-> 0010
+
+0010 : Idle
+
+0015 : Wake up
+0015 --> 0016
+
+0016 : Wait for BOA
+
+0020 : Start fight
+0020 --> 0210
+
+0200 : something
+note top
+Become intangible
+Set shared Y position to 0
+end note
+0200 -[dashed]-> 0201
+
+0201 : Decide next attack
+state c1 <<choice>>
+state c2 <<choice>>
+0201 --> c1 : (Facing right, animation == 0, or HP < 200)\nAND waited at least 200 ticks
+note on link : Increment Counter 1
+
+c1 --> 0230 : HP < 200
+c1 --> c2 : HP >= 200
+
+c2 --> 0220 : Counter 1 > 2
+c2 --> 0210 : Counter 1 <= 2
+
+0210 : First attack
+note left
+Become tangible
+end note
+0210 -[dashed]-> 0211
+
+0211 : Spawn rocks
+0211 --> 0200 : 50 damage taken or\n400 ticks elapsed
+
+0220 : Second attack
+note right
+Become tangible
+Set counter 1 to 0
+Set shared Y position to 1
+end note
+0220 -[dashed]-> 0221
+
+0221 : Spawn spinny fire things
+0221 --> 0200 : 150 damage taken, 400 ticks elapsed, or HP < 200 
+
+0230 : Start final phase
+note left
+Become tangible
+Spawn a bunch of spinny fire things
+end note
+0230 -[dashed]-> 0231
+
+0231 : Final phase
+note left
+Spawn spinny fire things every 60 ticks
+Set self as Curly AI target every 100 ticks
+    and set Curly AI wait to a random value (80-100)
+end note
+
+0500 : Start dying
+0500 -[dashed]-> 0501
+
+0501 : Falling down right
+0501 --> 1000 : After 200 ticks
+
+1000 : Start exploding
+1000 --> 1001 : After 100 ticks
+
+1001 : Finish exploding
+1001 --> [*] : After 50 ticks
+
+@enduml
+
+
+@startuml Core Front
+
+[*] --> 0000
+
+0000 : Inactive
+
+0010 : Face open
+0010 -[dashed]-> 0011
+
+0011 : Stay in position
+
+0050 : Die
+note right
+Set wait to 112 ticks
+end note
+
+0050 -[dashed]-> 0051
+
+0051 : Dying
+
+0051 --> 0100 : Wait elapsed
+
+0100 : Stay dead
+
+@enduml
+
+@startuml Core Back
+
+[*] --> 0000
+
+0000 : Inactive
+
+0010 : Init
+0010 -[dashed]-> 0011
+
+0011 : Stay in position
+
+0050 : Die
+note right
+Set wait to 112 ticks
+end note
+
+0050 -[dashed]-> 0051
+
+0051 : Dying
+
+0051 --> 0100 : Wait elapsed
+
+0100 : Stay dead
+
+@enduml
+
+@startuml Core Face
+
+[*] --> 0000
+
+0000 : Hidden
+
+0010 : Normal
+
+0020 : Grinning
+
+0030 : Gaping
+0030 -[dashed]-> 0031
+
+0031 : Spawn energy blasts
+
+@enduml
+
+@startuml Minicore
+
+[*] --> 0000
+note on link
+While in any state < 50:
+Perform movement based on Counter 2
+end note
+
+0000 : Inactive
+note left : Become unshootable
+
+0005 : Background, eye close
+note bottom: Increase Counter 2 by 1
+
+0010 : Background, eye open
+note bottom: Increase Counter 2 by 2
+
+0020 : Foreground, eye close
+note bottom: Increase Counter 2 by 2
+
+0030 : Background, eye close
+note bottom: Increase Counter 2 by 4
+
+0200 : Start moving
+0200 -[dashed]-> 0201
+
+0201 : Moving
+
+0201 --> [*] : If npc more than 2 tiles off the left edge of the map
+
+
+@enduml
+
+@startuml Hit
+
+[*] --> 0000
+note on link
+This npc has no states.
+All it does is shake itself around
+relative to the main Undead Core NPC
+a different hardcoded number of pixels
+based on the value of Counter 1:
+    0: y - 32
+    1: x + 28
+    2: x + 4, y + 32
+    3: x - 28, y + 4
+end note
+0000 : Exist
+
+@enduml
