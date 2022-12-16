@@ -1,0 +1,29 @@
+@startuml Npc 191 - Water Level
+[*] --> 0000
+note on link
+The global water height
+is constantly set
+to this npc's height
+regardless of state 
+end note
+0000 : Init
+note right : Set Target Y to current position
+0000 -[dashed]-> 0010
+
+0010 : Normal water
+note right : Hover around Target Y
+
+0020 : Start Core water
+0020 -[dashed]-> 0021
+
+0021 : Normal Core water
+note right : Hover around Target Y
+0021 --> 0022 : After 1000 ticks
+
+0022 : Flood screen
+0022 --> 0021 : Npc within 4 tiles of the top of the map\n\
+or Shared Y position != 0
+
+0030 : Hover at top of screen
+
+@enduml
