@@ -1,0 +1,80 @@
+@startuml Npc 160 - Puu Black
+
+[*] --> 0000
+0000 : Init
+note right : Disable soft-solid
+
+0000 -[dashed]-> 0001
+
+0001 : Falling through ceiling
+note right
+Face player
+Set Y momentum to 2560 down
+end note
+
+0001 --> 0002 : Once below 128 pixel from the top of the screen
+note on link : Collide with tiles
+
+0002 : Falling within range of player
+note right
+Set Y momentum to 2560 down
+If above player AND player grounded
+    set damage to 20
+else
+    set damage to 0
+end note
+
+0002 --> 0003 : Once grounded
+note on link
+Delete all bubbles
+Spawn 4 smoke
+Quake
+Play two sounds
+Set timer to 0
+end note
+
+0003 : Vulnerable after landing
+note right
+Set damage to 20, then 0
+end note
+
+0003 --> 0004 : Once timer > 24
+note on link
+Reset counter 1 and 2
+end note
+
+0004 : Idle and dangerous
+note right
+Sets global target coordinates to self coordinates
+If shock is odd
+  spawn a bubble [#161]
+  increase counter 1
+end note
+
+0004 --> 0005 : Counter 1 > 30
+note on link
+Set counter1 to 0
+Set Y momentum to -3072
+Ignore tiles
+end note
+
+0005 : Flying away
+note right
+Set global coordiates to current position
+Increase counter 1
+end note
+
+0005 --> 0006 : Once counter1 > 60
+note on link : Reset counter 1
+
+0006 : Flying above the screen
+note right : Set global coordinates to player X, hardcoded high Y value
+
+0006 --> 0001 : Once counter1 > 110
+note on link
+Set counter 1 to 10
+Set position to player X, Y=0
+Set Y momentum to 1535
+end note
+
+@enduml

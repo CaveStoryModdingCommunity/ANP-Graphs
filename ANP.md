@@ -19,6 +19,9 @@
 # 150 - Quote
 ![Quote](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_150_-_Quote.wsd)
 
+# 160 - Puu Black
+![Puu Black](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_160_-_Puu_Black.wsd)
+
 # 165 - Curly (Collapsed)
 ![Curly_Collapsed](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_165_-_Curly_(Collapsed).wsd)
 
