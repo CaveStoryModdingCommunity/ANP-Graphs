@@ -33,3 +33,9 @@
 
 # 313 - Ma Pignon
 ![Ma_Pignon](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_313_-_Ma_Pignon.wsd)
+
+# 317 - Mesa
+![Mesa](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_317_-_Mesa.wsd)
+
+# 318 - Mesa (Dead)
+![Mesa_Dead](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_318_-_Mesa_(Dead).wsd)

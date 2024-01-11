@@ -1,0 +1,40 @@
+@startuml Npc 317 - Mesa
+[*] --> 0000
+note on link
+At any point, if life 936 or lower
+    Become Npc 318 (Mesa (Dead))
+end note
+
+0000 : Init
+note right
+Move up 8 pixels
+Set target X to current location
+end note
+0000 -[dashed]-> 0001
+
+0001 : Also init
+note right: Set counter to 0
+0001 -[dashed]-> 0002
+
+0002 : Idle
+note right: Face player
+0002 --> 0010: Player has been within 20 tiles horizontally\n\
+and 10 tiles vertically for 50 ticks
+note on link
+Note: this is only because of short circuiting.
+it is possible Pixel MEANT for 50 ticks passed
+while in this state, not JUST while the player is close
+end note
+
+0010 : Start wind up
+note right: Spawn Npc 319 (Mesa block)
+0010 -[dashed]-> 0011
+
+0011 : Winding up
+0011 --> 0012: 50 ticks have passed
+note on link: Play sound 39
+
+0012 : Wind down
+0012 --> 0001: 20 ticks have passed
+
+@enduml
