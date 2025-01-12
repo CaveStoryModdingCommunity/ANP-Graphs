@@ -1,0 +1,36 @@
+@startuml Npc 217 - Itoh
+[*] --> 0000
+0000 : Init
+0000 -[dashed]-> 0001
+
+0001 : Idle (Left)
+0001 --> 0002
+
+0002 : Blinking (Left)
+0002 --> 0001
+
+0010 : Uwah!
+
+0020 : Jump Right
+0020 --> 0021
+
+0021 : Jumping Right
+0021 --> 0030 : Grounded
+
+0030 : Quivering
+
+0040 : Jump Out Of Helicopter
+0040 -[dashed]-> 0041
+
+0041 : Falling
+0041 --> 0042 : Grounded
+
+0042 : Idle (Right)
+
+0050 : Walk Right
+0050 -[dashed]-> 0051
+
+0051 : Walking Right
+0051 --> 0042 : After 32 Ticks
+
+@enduml

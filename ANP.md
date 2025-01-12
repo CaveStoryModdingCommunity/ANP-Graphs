@@ -28,6 +28,9 @@
 # 191 - Water Level
 ![Water_Level](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_191_-_Water_Level.wsd)
 
+# 217 - Itoh
+![Itoh](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_217_-_Itoh.wsd)
+
 # 239 - Cage Bars
 ![Cage_Bars](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_239_-_Cage_Bars.wsd)
 
