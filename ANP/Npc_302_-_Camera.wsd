@@ -1,0 +1,26 @@
+@startuml Npc 302 - Camera
+[*] --> 0000
+0000 : Wait For ANP
+
+0010 : Lock Position 2 Tiles Above Player
+
+0020 : Lock Player Position To This
+note bottom
+Direction 0-4 automatically move 2 pixels/frame,
+any other direction will be stationary.
+end note
+
+0030 : Lock Position 5 Tiles Below Player
+
+0100 : Select Parent NPC
+note right
+Search starts at index 170 in the NPC array
+using direction as the Event number to search for.
+Direction 0 skips the search and uses the map boss.
+end note
+0100 --> [*] : Selection Not Found
+0100 -[dashed]-> 0101 : Selection Found
+
+0101 : Lock Position Half Way Between Player And Parent NPC
+
+@enduml

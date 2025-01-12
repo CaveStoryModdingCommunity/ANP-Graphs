@@ -31,6 +31,9 @@
 # 239 - Cage Bars
 ![Cage_Bars](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_239_-_Cage_Bars.wsd)
 
+# 302 - Camera
+![Camera](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_302_-_Camera.wsd)
+
 # 313 - Ma Pignon
 ![Ma_Pignon](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/CaveStoryModdingCommunity/ANP-Graphs/main/ANP/Npc_313_-_Ma_Pignon.wsd)
 
