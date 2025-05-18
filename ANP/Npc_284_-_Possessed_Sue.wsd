@@ -1,0 +1,130 @@
+@startuml Npc 284 - Possessed Sue
+[*] --> 0000
+note on link 
+In any states < 100
+  if the current map boss is dead
+  or the npc's health < 500
+    set ANP to 100
+end note
+
+0000 : Init
+note right
+Move up 4 pixels
+Play sound 29
+Set counter 2 to current health
+end note
+0000 -[dashed]-> 0001
+
+0001 : Transforming
+0001 --> 0010 : After 50 ticks
+
+
+0010 : Finish Transforming
+note right : Delete all Red Crystals (257)
+0010 --> 0011
+
+0011 : Transformed
+
+0020 : Idle
+note right
+Become harmless, shootable,
+and enable tile collision
+end note
+0020 -[dashed]-> 0021
+
+0021 : Idling
+note right
+Look at player
+If 50 damage or more has been taken
+  set global shared X position to 10
+end note
+0021 --> 0030 : After 80 ticks
+
+0030 : Prepare attack
+0030 -[dashed]-> 0031
+
+state prep <<fork>>
+note bottom : Increase counter 1 (mod 4)
+
+0031 : Waiting to attack
+0031 --> prep : After 16 ticks
+
+prep --> 0032 : Counter 1 is 0 or 2
+prep --> 0034 : Counter 1 is 1 or 3
+
+0032 : Start ghost charge
+note right of 0032
+Become unshootable and enable tile collision
+Set target x to just past the player's current position
+Set target y to player's height
+Start charging towards target
+If charging towards the center of the map
+  Disable tile collision
+end note
+0032 -[dashed]-> 0033
+
+0033 : Ghost charging
+0033 --> 0020 : After 50 ticks, or if touching a wall(?)
+
+0034 : Start spin attack
+note left of 0034
+Enable tile collision
+Set damage to 4
+Set target to player's position
+Start charging towards target
+If charging towards the center of the map
+  Disable tile collision
+end note
+0034 -[dashed]-> 0035
+
+0035 : Spinning
+note right : Play sound 109 every 5 ticks
+0035 --> 0040 : If more than 20 ticks elapsed and currently being hit
+0035 --> 0020 : If more than 50 ticks elapsed or hit a wall
+
+0040 : Start flinching
+note right
+Become harmless
+Enable tile collision
+end note
+0040 -[dashed]-> 0041
+
+0041 : Flinching
+note right : Multiply speed by 7/8
+0041 --> 0042 : After 6 ticks
+note on link
+Set vertical momentum to -1 unit/tick
+Set horizontal momentum to 1 unit/tick backwards
+end note
+
+0042 : Finish recoil
+note right : Increase vertical momentum by 1/16 unit/tick (maximum 2.5 units/tick)
+0042 --> 0043 : If touching a ceiling(???)
+note on link : Face player
+
+0043 : Finishing recoil
+0043 --> 0020 : After 16 ticks
+
+0099 : Some idle/cutscene thing?
+note right : Become unshootable
+
+0100 : Start dying
+note right
+Become harmless, unshootable,
+and disable tile collision.
+Set y momentum to -1 unit/tick
+Increase shock by 50
+Increment map boss animation number
+end note
+0100 -[dashed]-> 0101
+
+0101 : Dying
+0101 --> 0102 : If height > 13 tiles - bottom hitbox
+note on link
+Set height to 13 tiles - bottom hitbox
+Reset momentum
+end note
+
+0102 : Dead on the ground
+
+@enduml

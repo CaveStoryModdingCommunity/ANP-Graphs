@@ -1,0 +1,24 @@
+@startuml Npc 1 - Experience
+
+[*] --> 0000
+
+0000 : Init
+0000 -[dashed]-> 0001
+note on link
+If current background is 5 or 6:
+    Set random horizontal speed from 127 to 256
+    Set random vertical speed from -128 to 128
+Otherwise
+    Set random horizontal speed from -512 to 512
+    Set random vertical speed from -1024 to 0
+    Randomly set direction to 0 or 2
+end note
+
+0001 : Bouncing
+note right
+In any state other than 0000
+    If exp is 5 or 20, change rects to correct size
+    Set ANP to 1
+end note
+
+@enduml

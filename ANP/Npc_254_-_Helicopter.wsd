@@ -1,0 +1,22 @@
+@startuml Npc 254 - Helicopter
+[*] --> 0000
+0000 : Init
+note right : Spawn two helicopter blade entities
+0000 --> 0001
+
+0001 : Blades Stopped
+
+0020 : Start blades running
+note right : Resets wait counter and sets counter 1 = 60
+0020 --> 0021
+
+0021 : Blades Running
+
+0030 : Spawn Momorin
+0030 --> 0021
+
+0040 : Credits Scene Setup
+note right : Spawn Momorin, Santa, and Chako
+0040 --> 0021
+
+@enduml

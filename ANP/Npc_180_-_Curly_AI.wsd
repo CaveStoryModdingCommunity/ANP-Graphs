@@ -1,0 +1,108 @@
+@startuml Npc 180 - Curly AI
+' 181 = Curly's Machine Gun
+' 182 = Curly's Polar Star
+' 183 = Air Tank Bubble
+[*] --> 0000
+note on link
+Before State Machine:
+
+If Curly is more than 10 tiles above the player
+  AND less than 16 tiles from the top of the map
+    Target 320 tiles to the right
+  otherwise
+    Target left edge of the map
+otherwise, if the global Curly Target Timer is not 0
+  Target the current global Curly Target NPC
+otherwise
+  Target the player
+
+Cancel horizontal momentum if hitting a wall
+---
+After State Machine:
+
+if global Curly Target Timer is not 0
+  Decrement global Curly timer
+if global Curly Target Timer is 70
+  Set counter 2 to 10
+
+if global Curly Target Timer is 60, Curly is grounded, and a 2/3 chance
+  Reset counter 1
+  Set y momentum to 6 pixels/tick up
+  If target left, go to 210, otherwise 310
+
+If in state 100-499
+  if within a 5 tile square of the player and touching something
+    Apply 1/32 pixels/tick gravity
+  otherwise
+    Apply 1/10 pixels/tick gravity
+
+end note
+0000 : Wait for ANP
+
+0020 : Init
+note right
+Set position to player's position
+Spawn Npc 183 (Air Tank Bubble)
+If flag 563 is set
+   Spawn Npc 182 (Curly's Polar Star)
+else
+   Spawn Npc 181 (Curly's Machine Gun)
+end note
+0020 --> 0100
+
+0040 : Start being unconscious (start of Core fight)
+note right : Set wait counter to 0
+0040 -[dashed]-> 0041
+
+0041 : Knocked out
+note right
+increase wait counter
+
+if wait counter = 750
+   disable interactivity
+end note
+0041 --> 0100 : wait counter > 1000
+note on link
+Spawn Npc 183 (Air Tank Bubble)
+If flag 563 is set
+   Spawn Npc 182 (Curly's Polar Star)
+else
+   Spawn Npc 181 (Curly's Machine Gun)
+end note
+state jumpcheck <<fork>>
+
+0100 : Choose target?
+0100 --> 0200 : Target more than 16 tiles to the left
+0100 --> 0300 : Target more than 16 tiles to the right
+
+note bottom of jumpcheck
+If wait timer = 0 and counter 1 > 10
+    add 10 to ANP state
+end note
+
+0200 : Chasing left?
+note left of 0200
+if stuck against left wall
+    increase counter 1
+else
+    reset counter 1
+end note
+0210 : Jumping left?
+
+0300 : Chasing right?
+note right of 0300
+if stuck against right wall
+    increase counter 1
+else
+    reset counter 1
+end note
+0310 : Jumping right?
+
+0200 --> jumpcheck
+0300 --> jumpcheck
+jumpcheck --> 0210
+jumpcheck --> 0310
+0210 --> 0100 : Grounded
+0310 --> 0100 : Grounded
+
+@enduml

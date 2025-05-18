@@ -1,0 +1,16 @@
+@startuml Npc 255 - Helicopter Blades
+
+[*] --> 0000
+note on link : Constantly locks to parent's position (with offset)
+
+0000 : Init
+0000 -[dashed]-> 0001
+
+0001 : Idle
+0001 --> 0010 : If Parent's ANP >= 20
+
+0010 : Start spinning
+0010 -[dashed]-> 0011
+0011 : Spinning
+
+@enduml
