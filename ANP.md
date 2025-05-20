@@ -46,6 +46,9 @@
 # 255 - Helicopter Blades
 ![Helicopter Blades](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_255_-_Helicopter_Blades.wsd)
 
+# 263 - Doctor (Boss)
+![Doctor (Boss)](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_263_-_Doctor_%28Boss%29.wsd)
+
 # 284 - Possessed Sue
 ![Possessed Sue](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_284_-_Possessed_Sue.wsd)
 

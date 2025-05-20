@@ -1,0 +1,111 @@
+@startuml Npc 263 - Doctor (Boss)
+[*] --> 0000
+note on link
+After state 102
+  Set shared global position to target
+Otherwise, if state >= 10
+  Set shared global position to self
+end note
+
+0000 : Init
+note right : Move up 8 pixels
+0000 --> 0001
+
+0001 : Idle
+
+0002 : Teleporting in
+0002 --> 0010 : After 50 ticks
+
+0010 : Fall to floor
+note left
+Gain 1/4 unit/tick momentum down
+Become shootable
+Set damage to 3
+end note
+0010 --> 0010 : Airborne
+0010 --> 0020 : Grounded
+note on link : Face player
+
+0020 : Prepare attack
+note right
+After 50 ticks or at least 20 damage taken
+  Set wait timer to 50
+After 50 ticks
+  Face player
+  Reach into jacket
+After 80 ticks
+  Spawn spheres (264)
+After 120 ticks
+  Back to idle
+If 130 ticks passed or 50 damage taken
+  Set wait timer to 161
+end note
+0020 --> 0100 : Wait timer > 160
+
+0030 : Prepare circle attack
+note right
+Set target X to current X
+Become shootable
+end note
+0030 -[dashed]-> 0031
+
+0031 : Circle attack
+note right : Shake around target
+0031 --> 0032 : After 50 ticks
+note on link
+Play sound 101
+Spawn circle of spheres (264)
+end note
+
+0032 : Wait 50 ticks
+0032 --> 0100 : After 50 ticks
+
+0100 : Teleport out
+note right
+Become unshootable
+Set damage to 0
+Play sound 29
+end note
+0100 -[dashed]-> 0101
+
+0101 : Teleporting out
+0101 --> 0102 : After 8 ticks
+note on link
+Set target to a random position in [5,35]x[5,7] tiles
+end note
+
+0102 : Hiding
+0102 --> 0103 : After 40 ticks
+note on link
+Set position to target
+Face player
+end note
+
+0103 : Choose next attack
+state C <<choice>>
+0103 --> C : After 8 ticks
+note on link
+Become shootable
+Set damage to 3
+end note
+C --> 0010 : Counter 1 < 3
+note on link : Increment Counter 1
+C --> 0030 : Counter 1 >= 4
+note on link : Reset Counter 1
+
+0500 : Start dying
+note left
+Become unshootable
+Gain 1/32 unit/tick momentum down
+end note
+0500 --> 0500 : Airborne
+0500 --> 0501 : Grounded
+note on link
+Set target X to current X
+Face player
+end note
+
+0501 : Dying
+note right : Face player and vibrate
+
+@enduml
