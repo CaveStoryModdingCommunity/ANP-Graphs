@@ -1,6 +1,9 @@
 # 1 - Experience
 ![Experience](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_1_-_Experience.wsd)
 
+# 25 - Lift
+![Lift](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_25_-_Lift.wsd)
+
 # 42 - Sue
 ![Sue](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_42_-_Sue.wsd)
 

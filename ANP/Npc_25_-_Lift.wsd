@@ -1,0 +1,44 @@
+@startuml Npc 25 - Lift
+[*] --> 0000
+0000 : Init
+note bottom : Move 8 pixels right
+0000 -l[dashed]-> 0001
+note on link : Weirdly, the wait timer is NOT reset by this transition
+
+0001 : Wait to ascend at bottom floor
+0001 -u-> 0002 : After 150 ticks
+note on link : Reset wait timer
+
+0002 : Ascend to middle floor
+note right : Manually moves 1 pixel/tick up
+0002 -u-> 0003 : After 64 ticks
+note on link : Reset wait timer
+
+0003 : Wait to ascend at middle floor
+0003 -u-> 0004 : After 150 ticks
+note on link : Reset wait timer
+
+0004 : Ascend to top floor
+note right : Manually moves 1 pixel/tick up
+0004 -l-> 0005 : After 64 ticks
+note on link : Reset wait timer
+
+0005 : Wait to descend at top floor
+0005 -d-> 0006 : After 150 ticks
+note on link : Reset wait timer
+
+0006 : Descend to middle floor
+note left : Manually moves 1 pixel/tick down
+0006 -d-> 0007 : After 64 ticks
+note on link : Reset wait timer
+
+0007 : Wait to descend at middle floor
+0007 -d-> 0008 : After 150 ticks
+note on link : Reset wait timer
+
+0008 : Descend to bottom floor
+note left : Manually moves 1 pixel/tick down
+0008 -r-> 0001 : After 64 ticks
+note on link : Reset wait timer
+
+@enduml
