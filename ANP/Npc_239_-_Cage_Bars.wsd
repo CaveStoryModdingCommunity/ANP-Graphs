@@ -3,7 +3,7 @@
 [*] --> 0000
 
 0000 : Init
-note left
+note left of 0000
 If direction is 0, set up the PrtStore bars:
     Move down 1 tile and right half a tile
 Otherwise, set up the PrtWhite bars:

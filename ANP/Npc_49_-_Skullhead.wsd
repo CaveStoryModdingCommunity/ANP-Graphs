@@ -3,7 +3,7 @@
 [*] --> 0000
 
 0000: Init
-note left
+note left of 0000
 Technically, even if the entity has a parent, it will always run 0001 next.
 However, the only unintended side effect is increasing npc->act_wait
 which is reset to 0 before its next use.

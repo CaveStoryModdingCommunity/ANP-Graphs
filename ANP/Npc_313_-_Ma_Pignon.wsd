@@ -5,7 +5,7 @@
 0000 -[dashed]-> 0001
 
 0001 : Idle
-note left : Face player
+note left of 0001 : Face player
 
 0001 --> 0002 : 1 in 120 chance each frame
 note on link : Set sprite to blinking
@@ -14,7 +14,7 @@ note on link : Set sprite to blinking
 0002 --> 0001 : After 8 ticks
 
 0100 : Start boss fight
-note left
+note left of 0100
 If a Blade or Missile is on screen
 and Ma Pignon is in any state from
 101-499, except for 210 and 320
@@ -34,7 +34,7 @@ hc --> 0300 : taken more than 12 hops
 0120 ---> 0130 : After 4 ticks
 
 0130 : Hopping
-note left
+note left of 0130
 If 8 or more tiles
 away from top of map
 turn off noclip
@@ -58,7 +58,7 @@ end note
 0210 --> 0220 : Hit a wall
 
 0220 : Whack!
-note left
+note left of 0220
 Quake for 16 ticks
 Play sound 26
 Set contact damage to 4
@@ -66,7 +66,7 @@ end note
 0220 -[dashed]-> 0221
 
 0221 : Stuck in wall
-note left : Spawn boulders every 6 ticks
+note left of 0221 : Spawn boulders every 6 ticks
 0221 -u-> 0130 : After 30 ticks
 note on link
 Become vulnerable
@@ -93,25 +93,23 @@ end note
 0320 --> 0330 : Within 1 tile of top of map
 
 0330 : Smash!
-note left
+note left of 0330
 Quake for 16 ticks
 Play sound 26
 end note
 0330 -[dashed]-> 0331
 
 0331 : Stuck in ceiling
-note left : Spawn clones every 6 ticks
+note left of 0331 : Spawn clones every 6 ticks
 0331 -l-> 0130 : After 30 ticks
 
 0500 : Start dying
-note left
+note left of 0500
 Become invulnerable
 Destroy all clones
 end note
 0500 -[dashed]-> 0501
 
 0501 : Shivering in death
-
-
 
 @enduml

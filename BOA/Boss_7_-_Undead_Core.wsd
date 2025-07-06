@@ -1,7 +1,7 @@
 @startuml Boss 7 - Undead Core
 
 [*] --> 0000
-note left
+note on link
 Movement applies in
 states 200 - 299.
 Minicores are spawned in
@@ -24,7 +24,7 @@ end note
 0020 --> 0210
 
 0200 : something
-note top
+note top of 0200
 Become intangible
 Set shared Y position to 0
 end note
@@ -43,7 +43,7 @@ c2 --> 0220 : Counter 1 > 2
 c2 --> 0210 : Counter 1 <= 2
 
 0210 : First attack
-note left
+note left of 0210
 Become tangible
 end note
 0210 -[dashed]-> 0211
@@ -52,7 +52,7 @@ end note
 0211 --> 0200 : 50 damage taken or\n400 ticks elapsed
 
 0220 : Second attack
-note right
+note right of 0220
 Become tangible
 Set counter 1 to 0
 Set shared Y position to 1
@@ -63,14 +63,14 @@ end note
 0221 --> 0200 : 150 damage taken, 400 ticks elapsed, or HP < 200 
 
 0230 : Start final phase
-note left
+note left of 0230
 Become tangible
 Spawn a bunch of spinny fire things
 end note
 0230 -[dashed]-> 0231
 
 0231 : Final phase
-note left
+note left of 0231
 Spawn spinny fire things every 60 ticks
 Set self as Curly AI target every 100 ticks
     and set Curly AI wait to a random value (80-100)
@@ -103,7 +103,7 @@ end note
 0011 : Stay in position
 
 0050 : Die
-note right
+note right of 0050
 Set wait to 112 ticks
 end note
 
@@ -129,7 +129,7 @@ end note
 0011 : Stay in position
 
 0050 : Die
-note right
+note right of 0050
 Set wait to 112 ticks
 end note
 
@@ -169,7 +169,7 @@ Perform movement based on Counter 2
 end note
 
 0000 : Inactive
-note left : Become unshootable
+note left of 0000 : Become unshootable
 
 0005 : Background, eye close
 note bottom: Increase Counter 2 by 1

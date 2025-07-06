@@ -40,7 +40,7 @@ end note
 0000 : Wait for ANP
 
 0020 : Init
-note right
+note right of 0020
 Set position to player's position
 Spawn Npc 183 (Air Tank Bubble)
 If flag 563 is set
@@ -51,11 +51,11 @@ end note
 0020 --> 0100
 
 0040 : Start being unconscious (start of Core fight)
-note right : Set wait counter to 0
+note right of 0040 : Set wait counter to 0
 0040 -[dashed]-> 0041
 
 0041 : Knocked out
-note right
+note right of 0041
 increase wait counter
 
 if wait counter = 750

@@ -19,14 +19,14 @@
 0005 : Interacting
 
 0006 : Hurt
-note left : Play sound 50
+note left of 0006 : Play sound 50
 0006 -[dashed]-> 0007
 
 0007 : Being hurt
 0007 --> 0000 : After 10 ticks
 
 0008 : Get knocked back
-note top : Play sound 50
+note top of 0008 : Play sound 50
 0008 -[dashed]-> 0009
 
 0009 : Being knocked back
@@ -41,14 +41,14 @@ note top : Play sound 50
 0012 : :SueAngery:
 
 0013 : Setup being grabbed by Igor
-note top
+note top of 0013
 Find the first npc with event 501
 Set that as the parent
 end note
 0013 -[dashed]-> 0014
 
 0014 : Being grabbed by Igor
-note bottom
+note bottom of 0014
 Face opposite direction of parent
 X position biased in direction parent is facing
 All other movement is disabled while in this state

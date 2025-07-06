@@ -15,7 +15,7 @@ Otherwise
 end note
 
 0001 : Bouncing
-note right
+note right of 0001
 In any state other than 0000
     If exp is 5 or 20, change rects to correct size
     Set ANP to 1

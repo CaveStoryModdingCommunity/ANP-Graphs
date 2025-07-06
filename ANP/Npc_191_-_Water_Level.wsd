@@ -7,17 +7,17 @@ to this npc's height
 regardless of state 
 end note
 0000 : Init
-note right : Set Target Y to current position
+note right of 0000 : Set Target Y to current position
 0000 -[dashed]-> 0010
 
 0010 : Normal water
-note right : Hover around Target Y
+note right of 0010 : Hover around Target Y
 
 0020 : Start Core water
 0020 -[dashed]-> 0021
 
 0021 : Normal Core water
-note right : Hover around Target Y
+note right of 0021 : Hover around Target Y
 0021 --> 0022 : After 1000 ticks
 
 0022 : Flood screen

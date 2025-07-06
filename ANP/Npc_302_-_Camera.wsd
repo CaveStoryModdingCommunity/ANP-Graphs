@@ -5,7 +5,7 @@
 0010 : Lock Position 2 Tiles Above Player
 
 0020 : Lock Player Position To This
-note bottom
+note bottom of 0020
 Direction 0-4 automatically move 2 pixels/frame,
 any other direction will be stationary.
 end note
@@ -13,7 +13,7 @@ end note
 0030 : Lock Position 5 Tiles Below Player
 
 0100 : Select Parent NPC
-note right
+note right of 0100
 Search starts at index 170 in the NPC array
 using direction as the Event number to search for.
 Direction 0 skips the search and uses the map boss.

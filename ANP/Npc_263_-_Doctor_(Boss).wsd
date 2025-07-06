@@ -8,7 +8,7 @@ Otherwise, if state >= 10
 end note
 
 0000 : Init
-note right : Move up 8 pixels
+note right of 0000 : Move up 8 pixels
 0000 --> 0001
 
 0001 : Idle
@@ -17,7 +17,7 @@ note right : Move up 8 pixels
 0002 --> 0010 : After 50 ticks
 
 0010 : Fall to floor
-note left
+note left of 0010
 Gain 1/4 unit/tick momentum down
 Become shootable
 Set damage to 3
@@ -27,7 +27,7 @@ end note
 note on link : Face player
 
 0020 : Prepare attack
-note right
+note right of 0020
 After 50 ticks or at least 20 damage taken
   Set wait timer to 50
 After 50 ticks
@@ -43,14 +43,14 @@ end note
 0020 --> 0100 : Wait timer > 160
 
 0030 : Prepare circle attack
-note right
+note right of 0030
 Set target X to current X
 Become shootable
 end note
 0030 -[dashed]-> 0031
 
 0031 : Circle attack
-note right : Shake around target
+note right of 0031 : Shake around target
 0031 --> 0032 : After 50 ticks
 note on link
 Play sound 101
@@ -61,7 +61,7 @@ end note
 0032 --> 0100 : After 50 ticks
 
 0100 : Teleport out
-note right
+note right of 0100
 Become unshootable
 Set damage to 0
 Play sound 29
@@ -94,7 +94,7 @@ C --> 0030 : Counter 1 >= 4
 note on link : Reset Counter 1
 
 0500 : Start dying
-note left
+note left of 0500
 Become unshootable
 Gain 1/32 unit/tick momentum down
 end note
@@ -106,6 +106,6 @@ Face player
 end note
 
 0501 : Dying
-note right : Face player and vibrate
+note right of 0501 : Face player and vibrate
 
 @enduml

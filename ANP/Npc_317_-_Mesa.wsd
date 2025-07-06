@@ -6,18 +6,18 @@ At any point, if life 936 or lower
 end note
 
 0000 : Init
-note right
+note right of 0000
 Move up 8 pixels
 Set target X to current location
 end note
 0000 -[dashed]-> 0001
 
 0001 : Also init
-note right: Set counter to 0
+note right of 0001 : Set counter to 0
 0001 -[dashed]-> 0002
 
 0002 : Idle
-note right: Face player
+note right of 0002 : Face player
 0002 --> 0010: Player has been within 20 tiles horizontally\n\
 and 10 tiles vertically for 50 ticks
 note on link
@@ -27,7 +27,7 @@ while in this state, not JUST while the player is close
 end note
 
 0010 : Start wind up
-note right: Spawn Npc 319 (Mesa block)
+note right of 0010 : Spawn Npc 319 (Mesa block)
 0010 -[dashed]-> 0011
 
 0011 : Winding up

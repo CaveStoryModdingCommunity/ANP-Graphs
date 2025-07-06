@@ -44,7 +44,7 @@ if --> 0100 : Life >= 300
 
 [*] --> 0000
 0000 : Normal circling
-note right
+note right of 0000
 The circling code works by
 using npc->pNpc->count1 as
 an angle that the body will

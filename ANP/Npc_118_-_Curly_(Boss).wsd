@@ -7,7 +7,7 @@
 0001 : Wait for ANP
 
 0010 : Start boss fight
-note left
+note left of 0010
 Set random wait between 50-100
 Face player
 Become shootable
@@ -18,7 +18,7 @@ end note
 0011 --> 0013 : Wait elapsed
 
 0013 : Start walking
-note left
+note left of 0013
 Set random wait between 50-100
 Face player
 end note
@@ -29,18 +29,18 @@ end note
 note on link : Play charge sound effect
 
 0020 : Charge up
-note left
+note left of 0020
 Face player
 Slow to a stop
 end note
 0020 --> 0021 : After 50 ticks
 
 0021 : Open fire!
-note left : Every 4 ticks
+note left of 0021 : Every 4 ticks
 0021 --> 0010 : After 30 ticks
 
 0030 : Missile Bubble
-note left
+note left of 0030
 This state is queued whenever
 a normal missile is on screen
 while Curly is in states 11-29.

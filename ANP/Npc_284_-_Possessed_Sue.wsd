@@ -8,7 +8,7 @@ In any states < 100
 end note
 
 0000 : Init
-note right
+note right of 0000
 Move up 4 pixels
 Play sound 29
 Set counter 2 to current health
@@ -20,20 +20,20 @@ end note
 
 
 0010 : Finish Transforming
-note right : Delete all Red Crystals (257)
+note right of 0010 : Delete all Red Crystals (257)
 0010 --> 0011
 
 0011 : Transformed
 
 0020 : Idle
-note right
+note right of 0020
 Become harmless, shootable,
 and enable tile collision
 end note
 0020 -[dashed]-> 0021
 
 0021 : Idling
-note right
+note right of 0021
 Look at player
 If 50 damage or more has been taken
   set global shared X position to 10
@@ -78,19 +78,19 @@ end note
 0034 -[dashed]-> 0035
 
 0035 : Spinning
-note right : Play sound 109 every 5 ticks
+note right of 0035 : Play sound 109 every 5 ticks
 0035 --> 0040 : If more than 20 ticks elapsed and currently being hit
 0035 --> 0020 : If more than 50 ticks elapsed or hit a wall
 
 0040 : Start flinching
-note right
+note right of 0040
 Become harmless
 Enable tile collision
 end note
 0040 -[dashed]-> 0041
 
 0041 : Flinching
-note right : Multiply speed by 7/8
+note right of 0041 : Multiply speed by 7/8
 0041 --> 0042 : After 6 ticks
 note on link
 Set vertical momentum to -1 unit/tick
@@ -98,7 +98,7 @@ Set horizontal momentum to 1 unit/tick backwards
 end note
 
 0042 : Finish recoil
-note right : Increase vertical momentum by 1/16 unit/tick (maximum 2.5 units/tick)
+note right of 0042 : Increase vertical momentum by 1/16 unit/tick (maximum 2.5 units/tick)
 0042 --> 0043 : If touching a ceiling(???)
 note on link : Face player
 
@@ -106,10 +106,10 @@ note on link : Face player
 0043 --> 0020 : After 16 ticks
 
 0099 : Some idle/cutscene thing?
-note right : Become unshootable
+note right of 0099 : Become unshootable
 
 0100 : Start dying
-note right
+note right of 0100
 Become harmless, unshootable,
 and disable tile collision.
 Set y momentum to -1 unit/tick

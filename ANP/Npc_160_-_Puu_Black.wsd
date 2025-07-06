@@ -2,12 +2,12 @@
 
 [*] --> 0000
 0000 : Init
-note right : Disable soft-solid
+note right of 0000 : Disable soft-solid
 
 0000 -[dashed]-> 0001
 
 0001 : Falling through ceiling
-note right
+note right of 0001
 Face player
 Set Y momentum to 2560 down
 end note
@@ -16,7 +16,7 @@ end note
 note on link : Collide with tiles
 
 0002 : Falling within range of player
-note right
+note right of 0002
 Set Y momentum to 2560 down
 If above player AND player grounded
     set damage to 20
@@ -34,7 +34,7 @@ Set timer to 0
 end note
 
 0003 : Vulnerable after landing
-note right
+note right of 0003
 Set damage to 20, then 0
 end note
 
@@ -44,7 +44,7 @@ Reset counter 1 and 2
 end note
 
 0004 : Idle and dangerous
-note right
+note right of 0004
 Sets global target coordinates to self coordinates
 If shock is odd
   spawn a bubble [#161]
@@ -59,7 +59,7 @@ Ignore tiles
 end note
 
 0005 : Flying away
-note right
+note right of 0005
 Set global coordiates to current position
 Increase counter 1
 end note
@@ -68,7 +68,7 @@ end note
 note on link : Reset counter 1
 
 0006 : Flying above the screen
-note right : Set global coordinates to player X, hardcoded high Y value
+note right of 0006 : Set global coordinates to player X, hardcoded high Y value
 
 0006 --> 0001 : Once counter1 > 110
 note on link
