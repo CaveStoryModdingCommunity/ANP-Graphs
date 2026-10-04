@@ -1,6 +1,9 @@
 # 1 - Experience
 ![Experience](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_1_-_Experience.wsd)
 
+# 12 - Balrog (Cutscene)
+![Balrog (Cutscene)](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_12_-_Balrog_%28Cutscene%29.wsd)
+
 # 25 - Lift
 ![Lift](http://www.plantuml.com/plantuml/proxy?cache=no&src=https%3A%2F%2Fraw.githubusercontent.com%2FCaveStoryModdingCommunity%2FANP-Graphs%2Fmain%2FANP%2FNpc_25_-_Lift.wsd)
 

@@ -1,0 +1,102 @@
+@startuml Npc 12 - Balrog (Cutscene)
+[*] --> 0000
+note on link
+If smoke enabled
+  1/10 chance to spawn smoke
+end note
+
+0000 : Start idling
+note left of 0000 : Direction 4 faces the player
+0000 -[dashed]-> 0001
+
+0001 : Idle
+0001 --> 0002 : 1/100 chance every tick
+note on link : Set wait timer to 0
+
+0002 : Blinking
+0002 --> 0001 : After 16 ticks
+
+0010 : Start going up
+note left of 0010
+Direction 4 faces the player
+Disable smoke
+end note
+0010 -[dashed]-> 0011
+note on link : Sets wait timer to 0
+
+0011 : Frozen in place
+0011 --> 0012 : After 30 ticks
+note on link : Ignore solidity and set Y momentum to 4 pixels/tick up
+
+0012 : Going up!
+state null <<start>>
+note bottom of null : CNPs into npc 0 (Null)
+0012 --> null : Above the top of the screen
+note on link : Plays sound 26 and causes a 30 tick quake
+
+0020 : Uh oh! Smoking, going up!
+note left of 0020
+Direction 4 faces player
+Spawns 4 smoke entities
+Plays sound 72
+end note
+0020 -[dashed]-> 0021
+
+0021 : Shaking, smoking, falling
+note left of 0021 : Enable smoke
+0021 --> 0011 : After 100 ticks
+
+0030 : Smile
+0030 --> 0000 : After 100 ticks
+
+0040 : Super panic
+note left of 0040 : Direction 4 faces player
+0040 -[dashed]-> 0041
+0041 : Panicking
+
+0042 : Uh oh! Being transformed
+note left of 0042 : Direction 4 faces player
+0042 -[dashed]-> 0043
+0043 : Flickering and panicking
+
+0050 : Back turned
+note left of 0050 : Sets X momentum to 0
+
+0060 : Walk (no gravity)
+0060 -[dashed]-> 0061
+0061 : Walking (no gravity)
+note left of 0061 : Plays sound 23 periodically
+
+0070 : Uh oh! Get teleported away
+note left of 0070
+Sets wait timer to 64
+Plays sound 29
+end note
+0070 -[dashed]-> 0071
+0071 : Being teleported away
+0071 --> [*] : Wait timer depleted
+
+0080 : Start Panicking
+0080 -[dashed]-> 0081
+0081 : Panicking
+
+0100 : Start rocketing up
+0100 -[dashed]-> 0101
+0101 : Charging up...
+0101 --> 0102 : After 20 ticks
+note on link
+Set Y momentum to 4 pixels/tick up
+Delete all npc 150 and 117
+Create two npc 355's facing left and up respectively
+end note
+0102 : Going up!
+note left of 0102
+When less than 35 tiles from the top of the map
+  Replace the three tiles above with air
+  Play sound 44
+  Start a 10 tick small quake
+end note
+0102 --> null : 32 tiles above the top of the map
+note on link : Start a 30 tick quake
+
+@enduml
